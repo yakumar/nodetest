@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 // app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  ig.scrapeTag("samantha")
+  ig.scrapeTag("ukraine")
     .then((result) => {
       console.dir(result);
       res.json({ data: `${result}` });
