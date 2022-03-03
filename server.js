@@ -36,10 +36,14 @@ app.use(express.urlencoded({ extended: false }));
 // app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  ig.scrapeTag("samantha").then((result) => {
-    console.dir(result);
-    res.json({ data: `${result}` });
-  });
+  ig.scrapeTag("samantha")
+    .then((result) => {
+      console.dir(result);
+      res.json({ data: `${result}` });
+    })
+    .catch((e) => {
+      console.log(`message from scraping ${e}`);
+    });
 });
 
 //*********
